@@ -1,0 +1,45 @@
+body{
+	width:100%;
+	height:100%
+	overflow:hidden;
+	background-image: url(../img/IMG_20141107_235008~2.jpg);
+	background-size: 150%;
+}
+
+
+.menu {
+	position: absolute;
+	top: 2%;
+	font-size: xx-large;
+}
+
+.flashMessage {
+	display: none;
+	position: absolute;
+	top: 10%;
+	width: 100%;
+	text-align: center;
+	font-size: 128px;
+	color: silver;
+}
+.card {
+	display:none;
+	background-color:#E4E4E4;
+	border: 2px solid #333333;
+	position: absolute;
+	top: 10%;
+	left:5%;
+	width: 90%;
+	height:80%;
+	text-align: center;
+	font-size: 38px;
+	color: dimgray;
+}
+.card button{
+	position:absolute;
+	bottom:-30px;
+	right:-10px;
+	width:40%;
+	height: 15%;
+	font-size: 28px;
+}

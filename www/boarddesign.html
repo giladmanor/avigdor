@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+	<script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<style>
+	.mesh {
+		fill: none;
+		stroke: #000;
+		stroke-width: .25px;
+	}
+
+	.start {
+		fill: none;
+		stroke: brown;
+	}
+
+	.end {
+		fill: none;
+		stroke: steelblue;
+	}
+
+</style>
+
+<body>
+	<textarea id="res"></textarea>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="http://d3js.org/d3.hexbin.v0.min.js"></script>
+	<script>
+		var width = 1260, height = 700, radius = 20;
+
+		var p0 = [250, 200, 60], p1 = [560, 300, 120];
+
+		var svg = d3.select("body").append("svg").attr("width", width).attr("height", height).append("g");
+
+		svg.append("path").attr("class", "mesh").attr("d", d3.hexbin().size([width, height]).radius(radius).mesh);
+
+		var points = [];
+
+		$(function() {
+			console.log("ready!");
+			$("body").click(function(e) {
+				console.log(e);
+				points.push([e.offsetX, e.offsetY]);
+				//console.log(points);
+				paint(points);
+				$("#res").val(JSON.stringify(points));
+			});
+		});
+
+		var paint = function(points) {
+			var margin = {
+				top : 0,
+				right : 0,
+				bottom : 0,
+				left : 0
+			};
+			var color = d3.scale.linear().domain([0, 20]).range(["white", "steelblue"]).interpolate(d3.interpolateLab);
+
+			var hexbin = d3.hexbin().size([width, height]).radius(20);
+
+			var svg = d3.select("svg").attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+			svg.append("clipPath").attr("id", "clip").append("rect").attr("class", "mesh").attr("width", width).attr("height", height);
+
+			svg.append("g").attr("clip-path", "url(#clip)").selectAll(".hexagon").data(hexbin(points)).enter().append("path").attr("class", "hexagon").attr("d", hexbin.hexagon()).attr("transform", function(d) {
+				return "translate(" + d.x + "," + d.y + ")";
+			}).style("fill", function(d) {
+				console.log("color::", color(d.length));
+				return color(d.length);
+			});
+		};
+
+	</script>
