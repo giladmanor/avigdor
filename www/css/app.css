@@ -1,0 +1,155 @@
+body {
+	padding: 0;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+	margin: 0px;
+	padding: 0px;
+	background-color: #0B614B;
+}
+/*TITLE*/
+.title {
+	position: absolute;
+	background-color: #4B946A;
+	color: white;
+	font-size: 32px;
+	height: 48px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 7px;
+	box-shadow: 0px 2px 5px gray;
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+.title img {
+	position: absolute;
+	max-height: 40px;
+	right: 5%;
+}
+/*FOOTER*/
+.footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #5c957b;
+	height: 60px;
+	box-shadow: inset 0px 4px 5px 0px #6E6E6E;
+}
+.footer button{
+	float:left;
+	margin-top:70px;
+	margin-left:20px
+}
+/*APP*/
+.app {
+	position: absolute;
+	padding: 30px;
+	top: 56px;
+	bottom: 60px;
+	left: 0;
+	right: 0;
+	margin: 0px;
+}
+
+/*SPLASH*/
+.splash {
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+.splash img{
+	margin-left:auto;
+	/*margin-right:auto;*/
+}
+
+/*CARD*/
+.card {
+	position: absolute;
+	top: 200%;
+	left:1%;
+	bottom:0;
+	width: 98%;
+	text-align: center;
+	box-shadow: 0px 2px 5px gray;
+	background-color: #D8F6CE;
+	overflow-y: auto;
+}
+
+
+/*JOIN*/
+.join {
+	
+}
+
+.card input {
+	width: 70%;
+	height: 50px;
+	font-size: 32px;
+}
+.card h1{
+	font-size: 28px;
+	color: #0B614B;
+}
+.card button{
+	float:right;
+	margin-right:5px;
+	margin-top:-5px
+}
+/*SETTINGS*/
+.settings{
+	
+}
+.settings input {
+
+}
+
+/*UTILITIES*/
+.round-button {
+	display: block;
+	width: 70px;
+	height: 70px;
+	line-height: 50px;
+	border: 2px solid #f5f5f5;
+	border-radius: 50%;
+	color: #f5f5f5;
+	text-align: center;
+	text-decoration: none;
+	background: #0B614B;
+	box-shadow: 0 0 3px gray;
+	font-size: 28px;
+	font-weight: bold;
+	outline: none;
+}
+
+ul{
+	list-style:none;
+    padding-left:2%;
+    padding-right:2%;
+    text-align:left;
+    
+}
+li{
+	border-bottom: dashed 1px;
+	padding:15px;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.7; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.7; }
+    to { opacity: 1.0; }
+}
+
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}

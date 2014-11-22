@@ -34,6 +34,7 @@ C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\board.html \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\boarddesign.html \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\chat.html \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\config.xml \
+C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\Copy of index.html \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\cordova.js \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\cordova_plugins.js \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\css \
@@ -51,6 +52,7 @@ C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\sounds \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\spec \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\spec.html \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\transition.html \
+C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\css\app.css \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\css\board.css \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\css\font-awesome.min.css \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\css\index.css \

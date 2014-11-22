@@ -1,17 +1,17 @@
 var app = {
 	// Application Constructor
+	currentCard : "nothing",
 	initialize : function() {
-		
-		app.aboutTpl = Handlebars.compile($("#about-tpl").html());
-		app.creditLiTpl = Handlebars.compile($("#credit-li-tpl").html());
-		
-		app.LoginTpl = Handlebars.compile($("#login-tpl").html());
-		app.RegOptTpl = Handlebars.compile($("#reg-opt-tpl").html());
-		app.ChooseGameTpl = Handlebars.compile($("#choose-game-tpl").html());
+
+		// app.aboutTpl = Handlebars.compile($("#about-tpl").html());
+		// app.creditLiTpl = Handlebars.compile($("#credit-li-tpl").html());
+		// app.RegOptTpl = Handlebars.compile($("#reg-opt-tpl").html());
 		app.ThemeTpl = Handlebars.compile($("#theme-li-tpl").html());
+
+		app.newGameTpl = Handlebars.compile($("#new-game-tpl").html());
 		app.SettingsTpl = Handlebars.compile($("#settings-tpl").html());
-		
-		
+		app.JoinTpl = Handlebars.compile($("#join-tpl").html());
+
 		this.bindEvents();
 	},
 	// Bind Event Listeners
@@ -26,38 +26,94 @@ var app = {
 	// The scope of 'this' is the event. In order to call the 'receivedEvent'
 	// function, we must explicitly call 'app.receivedEvent(...);'
 	onDeviceReady : function() {
-		app.receivedEvent('deviceready');
-		
+		app.splashOut();
+		app.join();
 		localStorage.device_uuid = device.uuid;
-		
+		app.showFooterMenu();
 	},
-	login: function() {
-		$('.view').html(app.LoginTpl());		
+	splashOut : function() {
+		$(".splash").animate({
+			"left" : "-20"
+		}, 200, function() {
+			$(".splash").animate({
+				"left" : "500"
+			}, 500, function() {
+				$(".splash").remove();
+			});
+		});
+
 	},
-	settings: function() {
-		
-		$('.view').html(app.SettingsTpl(localStorage));
-				
+	showClicked : function(obj) {
+		$(obj).animate({
+			"margin-top" : "-45px"
+		}, 200, function() {
+			$(obj).animate({
+				"margin-top" : "-25px"
+			}, 400);
+		});
 	},
-	saveSettings:function(name,color){
+	setView : function(card, template) {
+		if (app.currentCard != card) {
+			$('.app').append(template);
+
+			$('.' + card).animate({
+				"top" : "1%"
+			}, 700, function() {
+				console.log("remove " + app.currentCard);
+				$('.' + app.currentCard).remove();
+				app.currentCard = card;
+				console.log("now viewing " + app.currentCard);
+			});
+		}
+	},
+	join : function() {
+		app.setView("join", app.JoinTpl());
+
+	},
+	showFooterMenu : function() {
+		$('.footer').children('button').each(function(i) {
+			//$(this).css("margin-top","70px");
+			$(this).delay(i * 200).animate({
+				"margin-top" : "-35px"
+			}, 400, function() {
+				$(this).animate({
+					"margin-top" : "-25px"
+				}, 400);
+			});
+		});
+	},
+	settings : function() {
+		app.setView("settings", app.SettingsTpl(localStorage));
+	},
+	saveSettings : function(name) {
 		localStorage.name = name;
-		localStorage.color = color;
-		app.regOpts();
+		
 	},
-	selectedColor:function(color){
-		return localStorage.color==color ? "selected" : "";
-	},
-	regOpts: function() {
-		$('.view').html(app.RegOptTpl());		
-	},
-	chooseGame: function() {
+	newGame:function(){
 		var code = app.generate_key(5);
 		localStorage.game_code = code;
-		$('.view').html(app.ChooseGameTpl({code:code }));	
-		var games = [{name:"יחסינו לאן"}];
-		$('.theme-list').html(app.ThemeTpl(games));	
+		var games = [{name : "יחסינו לאן"},{name : "kissing game"},{name : "fun with friends"}];
+		app.setView("new-game", app.newGameTpl({code : code}));
+		$('.theme-list').html(app.ThemeTpl(games));
 	},
-	useCode:function(code){
+	selectedColor : function(color) {
+		return localStorage.color == color ? "selected" : "";
+	},
+	regOpts : function() {
+		$('.view').html(app.RegOptTpl());
+	},
+	chooseGame : function() {
+		var code = app.generate_key(5);
+		localStorage.game_code = code;
+		$('.view').html(app.ChooseGameTpl({
+			code : code
+		}));
+		var games = [{
+			name : "יחסינו לאן"
+		}];
+		$('.theme-list').html(app.ThemeTpl(games));
+	},
+	useCode : function(code) {
 		localStorage.game_code = code;
 		app.gotoPage('board.html');
 	},
@@ -72,36 +128,37 @@ var app = {
 		receivedElement.setAttribute('style', 'display:block;');
 
 		app.login();
-		
+
 		$("#about").on("click", function() {
 			console.log("binded via jquery");
 			//window.location='about.html';
 			$('.view').html(app.aboutTpl());
-			var credits = [{role:"developer",name:"Gilad Manor"}];
+			var credits = [{
+				role : "developer",
+				name : "Gilad Manor"
+			}];
 			$('.credit-list').html(app.creditLiTpl(credits));
-			
+
 		});
-		
-		
 
 		// navigator.geolocation.getCurrentPosition(function(position) {
-			// console.log(position.coords.latitude);
-			// console.log(position.coords.longitude);
+		// console.log(position.coords.latitude);
+		// console.log(position.coords.longitude);
 		// }, function() {
-			// alert('Error getting location');
+		// alert('Error getting location');
 		// });
-// 
+		//
 		// var options = {
-			// quality : 50,
-			// destinationType : Camera.DestinationType.DATA_URL,
-			// sourceType : 1, // 0:Photo Library, 1=Camera, 2=Saved Photo Album
-			// encodingType : 0 // 0=JPG 1=PNG
+		// quality : 50,
+		// destinationType : Camera.DestinationType.DATA_URL,
+		// sourceType : 1, // 0:Photo Library, 1=Camera, 2=Saved Photo Album
+		// encodingType : 0 // 0=JPG 1=PNG
 		// };
-// 
+		//
 		// navigator.camera.getPicture(function(imageData) {
-			// $('#little_avigdor').attr('src', "data:image/jpeg;base64," + imageData);
+		// $('#little_avigdor').attr('src', "data:image/jpeg;base64," + imageData);
 		// }, function() {
-			// app.showAlert('Error taking picture', 'Error');
+		// app.showAlert('Error taking picture', 'Error');
 		// }, options);
 
 		console.log('Received Event: ' + id);
@@ -109,8 +166,7 @@ var app = {
 			//navigator.notification.alert("welcome", null, "Avigdor sais", null);
 			$("#about").fadeIn("slow");
 		}, 500);
-		
-		
+
 	},
 	gotoPage : function(page) {
 		console.log("goto");
@@ -119,11 +175,9 @@ var app = {
 			window.location = page;
 			$("body").fadeIn("slow");
 		}, 400);
-		
-		
-		
+
 		return;
-		
+
 		$("body").addClass("moveout");
 		setTimeout(function() {
 			window.location = page;
@@ -132,9 +186,9 @@ var app = {
 	generate_key : function(len) {
 		var text = "";
 		var possible = "abcdefghijklmnopqrstuvwxyz0123456789";
-		for (var i = 0; i < len; i++){
+		for (var i = 0; i < len; i++) {
 			text += possible.charAt(Math.floor(Math.random() * possible.length));
-		}	
+		}
 		return text;
 	}
 };
