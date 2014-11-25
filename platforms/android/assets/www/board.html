@@ -9,98 +9,39 @@
 		<script src="http://104.131.100.96:4000/socket.io/socket.io.js"></script>
 		<link href="css/font-awesome.min.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/board.css" />
-
+		
+		
 	</head>
 
-	<body style="">
-		<script src="js/board.js"></script>
+	<body >
 		<script src="js/socketier.js"></script>
-		<div class="menu">
-			<img id="dice" src="img/graphics-dice-074823.gif" onclick="rollDice()"/>
-
-		</div>
-		<div class="flashMessage" >
-			A
-		</div>
-		<div class="card" >
-			<h2 id="card_title">card</h2>
-			<p id="card_text">this is what you should do</p>
-			<button onclick="doneCard()"><i class="fa fa-check"> </i> done</button>
+		<div class="board"></div>
+		<div class="status">
+			-------------------------
 		</div>
 		
-		<script>
-			var gameObject = {};
-			gameObject[localStorage.device_uuid] = {
-				location : 0,
-				color : localStorage.color,
-				name : localStorage.name
-			};
-			console.log("registering socket with " + localStorage.game_code);
+		<div class="title">
+			Avigdor
+			<i class="fa fa-user"></i>
+		</div>
 
-			var updateStatus = function(data) {
-				updateBoard(data);
-				$("#dice").fadeOut();
-				if(data.event.players && data.event.players.indexOf(localStorage.device_uuid)>-1){
-					console.log("**** EVENT *****");
-					resolveEventCard(data.event.players);
-				}else if (data.turn == localStorage.device_uuid) {
-					myTurn();
-				}
-				
-				
-			};
-			soketier.init(localStorage.game_code || "default", updateStatus);
-			
-			var resolveEventCard = function(players){
-				showCard({title:"a card",text:"kiss my buttox"});
-			};
-			
-			var moveBy = function(val) {
-				myData = gameObject[localStorage.device_uuid];
-				//console.log(val);
-				myData.location = (myData.location + val)%path.length;
-				//console.log(gameObject);
-				shiftView(myData.location);
-				soketier.send(gameObject);
-			};
-
-			var myTurn = function() {
-				$("#dice").fadeIn();
-
-			};
-
-			var rollDice = function() {
-				var val = Math.floor((Math.random() * 6) + 1);
-				$("#dice").fadeOut();
-				flash(val);
-				var pos = 0;
-				moveBy(val);
-
-			};
-			
-			var showCard = function(data){
-				console.log(".");
-				$("#card_title").html(data.title);
-				$("#card_text").html(data.text);
-				$(".card").fadeIn("slow");
-			};
-			
-			var doneCard = function(){
-				$(".card").fadeOut("slow");
-				soketier.send({event:"done",player:localStorage.device_uuid});
-				
-			};
-
-			var flash = function(msg) {
-				$(".flashMessage").html(msg);
-				$(".flashMessage").fadeIn();
-				$(".flashMessage").fadeOut("slow");
-			};
-			
-			$("#dice").fadeOut();
-			moveBy(0);
-			//showCard({title:"a card",text:"kiss my buttox"});
-			
-		</script>
+		<div class="menu">
+			<img id="dice" src="img/graphics-dice-074823.gif" onclick="rollDice()"/>
+			<div class="flashMessage" >
+				A
+			</div>
+		</div>
+		
+		
+		<div class="card" >
+			<div class="title" id="card_title">card</div>
+			<div class="text" id="card_text">
+				this is what you should do
+			</div>
+			<button onclick="doneCard()"><i class="fa fa-check"> </i> </button>
+		</div>
+		
+		<script src="js/board.js"></script>
+		<script src="js/game_controller.js"></script>
 	</body>
 </html>

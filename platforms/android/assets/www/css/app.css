@@ -1,5 +1,4 @@
 body {
-	padding: 0;
 	top: 0;
 	bottom: 0;
 	left: 0;
@@ -79,12 +78,6 @@ body {
 	overflow-y: auto;
 }
 
-
-/*JOIN*/
-.join {
-	
-}
-
 .card input {
 	width: 70%;
 	height: 50px;
@@ -99,6 +92,22 @@ body {
 	margin-right:5px;
 	margin-top:-5px
 }
+.code-generation{
+	padding: 10px;
+	color:white;
+	background-color: #FA58F4;
+	box-shadow: 0px 2px 5px gray;
+	font-size: 22px;
+	margin-bottom:10%;
+}
+
+
+/*JOIN*/
+.join {
+	
+}
+
+
 /*SETTINGS*/
 .settings{
 	
@@ -130,6 +139,7 @@ ul{
     padding-left:2%;
     padding-right:2%;
     text-align:left;
+    height:50%;
     
 }
 li{

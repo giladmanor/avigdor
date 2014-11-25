@@ -4,8 +4,10 @@ var soketier = {
 	socket:io('http://104.131.100.96:4000/'),
 	code:"",
 	uuid:"",
-	init:function(code,handler){
-		soketier.socket.emit("register", code);
+	init:function(initData,handler){
+		var code = initData.code;
+		
+		soketier.socket.emit("register", initData);
 		soketier.code = code;
 		soketier.socket.on(code,handler);
 	},
