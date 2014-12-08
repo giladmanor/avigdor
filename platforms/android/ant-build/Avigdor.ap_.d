@@ -75,6 +75,7 @@ C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\js\about.js 
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\js\board.js \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\js\d3.hexbin.v0.min.js \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\js\d3.v3.min.js \
+C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\js\game_controller.js \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\js\handlebars-v2.0.0.js \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\js\index.js \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\js\jquery-1.11.1.min.js \

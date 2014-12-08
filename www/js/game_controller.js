@@ -11,7 +11,7 @@ var updateStatus = function(data) {
 	$("#dice").fadeOut();
 	if (data.event.players && data.event.players.indexOf(localStorage.device_uuid) > -1) {
 		console.log("**** EVENT *****");
-		resolveEventCard(data.event.players);
+		resolveEventCard(data.event);
 	} else if (data.turn == localStorage.device_uuid) {
 		myTurn();
 		hideStatus();
@@ -40,15 +40,19 @@ var fastStatus = function(msg){
 	$(".status").fadeIn();
 };
 
-var resolveEventCard = function(players) {
+var resolveEventCard = function(event) {
+	var task = event.card.tasks[0];
 	showCard({
-		title : "a card",
-		text : "kiss my buttox"
+		title : event.card.tags[0],
+		text : task
 	});
+	
 };
 
 var join = function(){
 	gameObject.event = "join";
+	
+	
 	soketier.send(gameObject);
 };
 
@@ -81,7 +85,7 @@ var flash = function(msg) {
 };
 
 var rollDice = function() {
-	var val = Math.floor((Math.random() * 6) + 1);
+	var val = Math.floor((Math.random() * 2) + 1);
 	$("#dice").fadeOut();
 	flash(val);
 	var pos = 0;
@@ -114,9 +118,13 @@ var doneCard = function() {
 console.log("+++init+++");
 var initData = {
 	code:localStorage.game_code || "default",
-	player:{}
+	player:{},
+	tags : localStorage.selected_tags.split(",")
 };
 initData.player[localStorage.device_uuid]=gameObject;
 soketier.init(initData, updateStatus);
 shiftView(0);
+
+$(".game_code").html(localStorage.game_code);
+
 //showCard({title:"a card",text:"kiss my buttox"});
