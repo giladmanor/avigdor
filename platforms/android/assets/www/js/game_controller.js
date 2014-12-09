@@ -85,7 +85,7 @@ var flash = function(msg) {
 };
 
 var rollDice = function() {
-	var val = Math.floor((Math.random() * 2) + 1);
+	var val = Math.floor((Math.random() * 6) + 1);
 	$("#dice").fadeOut();
 	flash(val);
 	var pos = 0;

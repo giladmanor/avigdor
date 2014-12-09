@@ -69,6 +69,7 @@ C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\gameboards\b
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\img\418753_10150525343677759_1144156574_n.jpg \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\img\frank.jpg \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\img\graphics-dice-074823.gif \
+C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\img\icon.png \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\img\IMG_20141107_235008~2.jpg \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\img\logo.png \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\js\about.js \
