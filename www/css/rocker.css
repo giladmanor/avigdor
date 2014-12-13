@@ -1,0 +1,44 @@
+@-webkit-keyframes spacemonkeis {
+0% { -webkit-transform:  rotate(60deg); }
+50% { -webkit-transform:  rotate(-10deg); }
+100% { -webkit-transform:  rotate(0deg); }
+}
+
+@-webkit-keyframes spacedogs {
+0% { -webkit-transform:  rotate(15deg); }
+50% { -webkit-transform:  rotate(10deg); }
+100% { -webkit-transform:  rotate(15deg); }
+}
+
+@-webkit-keyframes spacedogs1 {
+0% { -webkit-transform:  rotate(-15deg); }
+50% { -webkit-transform:  rotate(-10deg); }
+100% { -webkit-transform:  rotate(-15deg); }
+}
+
+.rock {
+	-webkit-animation-name: spacemonkeis;
+	-webkit-animation-duration: 1s;
+	-webkit-transform-origin: 70% 70%;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: cubic-bezier(0,0,0.58,1);
+	
+}
+
+.rocking {
+	-webkit-animation-name: spacedogs;
+	-webkit-animation-duration: 1s;
+	-webkit-transform-origin: 50% 50%;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: cubic-bezier(0,0,0.58,1);
+	
+}
+
+.rocking1 {
+	-webkit-animation-name: spacedogs1;
+	-webkit-animation-duration: 1.35s;
+	-webkit-transform-origin: 50% 50%;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: cubic-bezier(0,0,0.58,1);
+	
+}

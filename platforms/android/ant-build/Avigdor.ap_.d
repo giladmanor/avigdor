@@ -30,6 +30,7 @@ C:\Users\user\Documents\GitHub\avigdor\platforms\android\ant-build\res\drawable-
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\_where-is-www.txt \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\about.html \
+C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\avigdor.html \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\board.html \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\boarddesign.html \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\chat.html \
@@ -56,6 +57,7 @@ C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\css\app.css 
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\css\board.css \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\css\font-awesome.min.css \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\css\index.css \
+C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\css\shaker.css \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\fonts\fontawesome-webfont.eot \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\fonts\fontawesome-webfont.svg \
 C:\Users\user\Documents\GitHub\avigdor\platforms\android\assets\www\fonts\fontawesome-webfont.ttf \

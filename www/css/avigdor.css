@@ -1,0 +1,55 @@
+@import "shaker.css";
+@import "rocker.css";
+@import "forms.css";
+
+body {
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+	margin: 0px;
+	padding: 0px;
+	background-color: #F5A9F2;
+}
+
+.face{
+	position:absolute;
+	top:40%;
+	bottom:0;
+	left:0;
+	right:0;
+	text-align:center;
+}
+
+.startButtons{
+	position:absolute;
+	top:-35%;
+	bottom:0;
+	left:0;
+	right:0;
+	padding:-250%;
+	color:white;
+	font-size:30px;
+	display:none;
+}
+
+.startButtons button{
+	font-size: 40px;
+	color:#F5A9F2;
+}
+
+.joinButton{
+	
+	width:90px;
+	height:90px;
+	text-align:center;
+	-webkit-transform: rotate(17deg);
+}
+
+.newButton{
+	width:90px;
+	height:90px;
+	text-align:center;
+	-webkit-transform: rotate(-17deg);
+}
