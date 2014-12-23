@@ -40,7 +40,6 @@ var showPlayers = function(items) {
 
 var clearPlayers = function() {
 	$(".location").css("fill", boardColor);
-	
 };
 
 var transition = function(svg, start, end) {

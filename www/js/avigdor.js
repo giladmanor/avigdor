@@ -29,6 +29,7 @@ var app = {
 			app.initUser();
 		} else {
 			//start screen
+			console.log(localStorage.user_name);
 			app.start();
 
 		}
@@ -74,19 +75,21 @@ var app = {
 	setUserName : function(frm) {
 		var postData = $(frm).serializeArray();
 		console.log(postData[0].value);
-		localStorage.user = {
-			name : postData[0].value
-		};
+		
+		localStorage.user_name= postData[0].value;
+		
+		console.log(localStorage.user_name);
 		app.formOut("nameForm");
 		app.formIn("sexForm");
 	},
 	setUserSex : function(sex) {
-		localStorage.user.sex = sex;
+		localStorage.user_sex = sex;
+		console.log(localStorage.user_sex);
 		app.formOut("sexForm");
 		app.formIn("likesForm");
 	},
 	setUserLikes : function(likes) {
-		localStorage.user.likes = likes;
+		localStorage.user_likes = likes;
 		localStorage.user_ok = true;
 		app.formOut("likesForm");
 		app.faceIn();

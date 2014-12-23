@@ -1,52 +1,50 @@
-.funnyForm{
-	position:absolute;
-	top:20%;
+.funnyForm {
+	position: absolute;
+	top: 20%;
 	/*bottom:20%;*/
-	left:5%;
-	right:5%;
-	padding:4%;
+	left: 5%;
+	right: 5%;
+	padding: 4%;
 	box-shadow: 1px 1px 2px gray;
 	border-radius: 15px;
 	text-align: center;
 	background-color: #FF33FF;
+	border: 1px solid #f5f5f5;
 }
 
-
-.nameForm{
-	display:none;
-}
-
-.sexForm{
-	display:none;
-}
-
-.likesForm{
-	display:none;
-}
-
-.joinForm{
+.nameForm {
 	display: none;
 }
 
-.newGameForm{
-	top:5%;
-	bottom:5%;
-	/*display: none;*/
+.sexForm {
+	display: none;
 }
 
+.likesForm {
+	display: none;
+}
 
+.joinForm {
+	display: none;
+}
 
-.funnyForm input[type="text"]{
-	width:100%;
-	height:40px;
+.newGameForm {
+	top: 5%;
+	height: 70%;
+	display: none;
+}
+
+.funnyForm input[type="text"] {
+	width: 100%;
+	height: 40px;
 	text-align: center;
-	font-size:28px
+	font-size: 28px
 }
 
 .funnyButton {
 	/*height:50px;*/
-	width:80px;
-    height:80px;
+	width: 80px;
+	height: 80px;
 	background-color: #00aced;
 	padding-left: 5%;
 	padding-right: 5%;
@@ -59,46 +57,57 @@
 	border-radius: 50%;
 	border: 3px solid #f5f5f5;
 	outline: none;
-	
 }
-div.selector{
-	
+div.selector {
+	position: absolute;
+	left: 1%;
+	right: 1%;
+	bottom: 20%;
+	top: 20%;
 }
 
-ul.selector{
+ul.selector {
 	border: 1px solid #808080;
+	border-radius: 15px;
 	box-shadow: inset 0 2px 5px gray;
-	overflow-x: auto;
+	position: absolute;
+	left: 1%;
+	right: 1%;
+	bottom: 1%;
+	top: 1%;
+	overflow-y: auto;
 	list-style-type: none;
-	max-height:290px;
-	padding:1%;
+	padding: 3%;
+	margin: 1%;
 }
 
-.selector li{
-	font-size:50px;
-	border: 3px solid #f5f5f5;
-	height:130px;
+.selector li {
+	font-size: 50px;
+	border-radius: 15px;
+	border: 1px solid #f5f5f5;
+	/*height: 130px;*/
+	margin: 1%;
 }
 
-.pink{
+.pink {
 	background-color: #F5A9F2;
 }
-.blue{
+.blue {
 	background-color: #00ACED;
 }
-.green{
+.green {
 	background-color: #00CC66;
 }
 
-.left{
-	float:left;
+.left {
+	float: left;
 }
 
-.right{
-	float:right;
+.right {
+	float: right;
 }
 
-.bigButton{
-	width:90px;
-    height:90px;
+.bigButton {
+	width: 90px;
+	height: 90px;
 }

@@ -1,3 +1,5 @@
+@import "shaker.css";
+
 body{
 	position:absolute;
 	top:0;
@@ -18,20 +20,21 @@ body{
 	right:0;
 	bottom:0;
 	overflow:hidden;
+	background-color: #00ACED;
 }
 
 
 /*TITLE*/
 .title {
 	position: absolute;
-	background-color: #ff33ff;
-	color: white;
+	/*background-color: #ff33ff;*/
+	color: #808080;
 	font-size: 32px;
 	height: 48px;
 	padding-left: 10px;
 	padding-right: 10px;
 	padding-top: 7px;
-	box-shadow: 0px 2px 5px gray;
+	/*box-shadow: 0px 2px 5px gray;*/
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -39,9 +42,18 @@ body{
 }
 .title i{
 	position: absolute;
-	right: 5%;
-	font-size: 47px;
+	right: 1%;
+	top:10mm;
+	font-size: 17mm;
 }
+.mastermenu{
+	position: absolute;
+	top:20%;
+	right:2%;
+	display: none;
+}
+
+
 .menu {
 	position: absolute;
 	bottom:-40%;
@@ -67,13 +79,16 @@ body{
 
 .status{
 	position: absolute;
-	top:60px;
-	right:5%;
-	left:5%;
-	padding:5px;
+	top:2mm;
+	right:11mm;
+	left:15%;
+	padding:10px;
 	border: 2px solid #ff33ff;
+	border-radius: 15px;
+	border-bottom-right-radius:0;
 	background: #ffffff;
 	box-shadow: 2px 2px 3px gray;
+	text-align:center;
 }
 
 

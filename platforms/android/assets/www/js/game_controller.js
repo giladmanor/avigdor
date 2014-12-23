@@ -1,13 +1,12 @@
 var gameObject = {
 	location : 0,
-	name : localStorage.name
+	name : localStorage.user_name
 };
 
 console.log("registering socket with " + localStorage.game_code);
-
 var updateStatus = function(data) {
 	updateBoard(data);
-	
+
 	$("#dice").fadeOut();
 	if (data.event.players && data.event.players.indexOf(localStorage.device_uuid) > -1) {
 		console.log("**** EVENT *****");
@@ -15,47 +14,47 @@ var updateStatus = function(data) {
 	} else if (data.turn == localStorage.device_uuid) {
 		myTurn();
 		hideStatus();
-	}else{
+	} else {
 		setStatus(data);
 	}
-	if(data.players){
-		$(".fa-user").css("color",data.players[localStorage.device_uuid].color);
+	if (data.players) {
+		$(".fa-user").css("color", data.players[localStorage.device_uuid].color);
 	}
-	
 
 };
 
-
-var setStatus = function(gameObject){
+var setStatus = function(gameObject) {
 	var turn = gameObject.players[gameObject.turn];
-	$(".status").html(turn.name+ " is now playing");
+	$(".status").html(turn.name + " is now playing");
 	$(".status").fadeIn();
 };
-var hideStatus = function(){
+var hideStatus = function() {
 	$(".status").fadeOut();
 };
 
-var fastStatus = function(msg){
+var fastStatus = function(msg) {
 	$(".status").html(msg);
 	$(".status").fadeIn();
 };
 
 var resolveEventCard = function(event) {
-	var task = event.card.tasks[0];
+	console.log("---------------------");
+	console.log(event);
+	var myIndex = event.players.indexOf(localStorage.device_uuid);
+	console.log(myIndex);
+	var task = event.tasks[myIndex];
 	showCard({
 		title : event.card.tags[0],
 		text : task
 	});
-	
+
 };
 
-var join = function(){
+var join = function() {
 	gameObject.event = "join";
-	
-	
+
 	soketier.send(gameObject);
 };
-
 
 var moveBy = function(val) {
 	myData = gameObject;
@@ -64,17 +63,17 @@ var moveBy = function(val) {
 	//console.log(gameObject);
 	shiftView(myData.location);
 	var o = {};
-	o[localStorage.device_uuid]=gameObject;
+	o[localStorage.device_uuid] = gameObject;
 	soketier.send(o);
-	
+
 };
 
-var myTurn = function(){
+var myTurn = function() {
 	console.log("my turn");
 	$(".flashMessage").fadeOut();
 	$(".menu").animate({
-		bottom:"2%"
-	},400,function(){
+		bottom : "2%"
+	}, 400, function() {
 		$("#dice").fadeIn();
 	});
 };
@@ -85,14 +84,14 @@ var flash = function(msg) {
 };
 
 var rollDice = function() {
-	var val = Math.floor((Math.random() * 6) + 1);
+	var val = Math.floor((Math.random() * 3) + 1);
 	$("#dice").fadeOut();
 	flash(val);
 	var pos = 0;
 	moveBy(val);
 	$(".menu").delay(2000).animate({
-		bottom:"-50%"
-	},400);
+		bottom : "-50%"
+	}, 400);
 
 };
 
@@ -100,11 +99,28 @@ var showCard = function(data) {
 	console.log(".");
 	$("#card_title").html(data.title);
 	$("#card_text").html(data.text);
-	$(".card").fadeIn("slow");
+	$(".card").show();
+	$(".card").css("top","150%");
+	$(".card").animate({
+		"top" : "10%"
+	}, 800, function() {
+		$(".card").animate({
+			"top" : "20%"
+		}, 200);
+	});
 };
 
 var doneCard = function() {
-	$(".card").fadeOut("slow");
+	$(".card").animate({
+		"top" : "10%"
+	}, 300, function() {
+		$(".card").animate({
+			"top" : "200%"
+		}, 600,function(){
+			$(".card").fadeOut("slow");
+		});
+	});
+	
 	soketier.send({
 		event : "done",
 		player : localStorage.device_uuid
@@ -112,16 +128,15 @@ var doneCard = function() {
 
 };
 
-
 //showCard({title:"muhaha",text:"show me your but, and then go fuck yourself in the ass.. you know you like it, dont you... yah..."});
 
 console.log("+++init+++");
 var initData = {
-	code:localStorage.game_code || "default",
-	player:{},
+	code : localStorage.game_code || "default",
+	player : {},
 	tags : localStorage.selected_tags.split(",")
 };
-initData.player[localStorage.device_uuid]=gameObject;
+initData.player[localStorage.device_uuid] = gameObject;
 soketier.init(initData, updateStatus);
 shiftView(0);
 

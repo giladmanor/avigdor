@@ -14,23 +14,32 @@
 	</head>
 
 	<body >
+			
+		
 		<script src="js/socketier.js"></script>
 		<div class="board"></div>
-		<div class="status">
+		<div class="status yoyo">
 			Lets Start!
 		</div>
 		
 		<div class="title">
-			Avigdor [<span class="game_code"></span>]
+			[<span class="game_code"></span>]
 			<i class="fa fa-user"></i>
 		</div>
 
 		<div class="menu">
 			<img id="dice" src="img/graphics-dice-074823.gif" onclick="rollDice()"/>
-			<div class="flashMessage" >
+			<div class="flashMessage " >
 				A
 			</div>
 		</div>
+		
+		<div class="mastermenu">
+			<i class="fa fa-plus"  onclick="moveBy(1)"></i>
+			<br /><br /><br /><br />
+			<i class="fa fa-minus"  onclick="moveBy(-1)"></i>
+		</div>
+		
 		
 		
 		<div class="card" >

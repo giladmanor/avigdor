@@ -24,7 +24,7 @@
 						<i class="fa fa-play"></i>
 					</button>
 				</div>
-				<div class="newButton left rocking1">
+				<div class="newButton left rocking1" onclick="app.openTagSelector()">
 					New
 					<button class="funnyButton green ">
 						<i class="fa fa-asterisk"></i>
@@ -73,21 +73,15 @@
 		
 		<div class="newGameForm funnyForm blue">
 			<form onsubmit="return false;">
-				<h1>Choose Board</h1>
+				<h1>kind of game?</h1>
 				
 				<div class="selector">
 					<ul class="selector">
-						<li>@</li>
-						<li>@</li>
-						<li>@</li>
-						<li>@</li>
-						<li>@</li>
-						<li>@</li>
-						<li>@</li>
+						
 					</ul>
 
 				</div>
-				<button class="funnyButton green shake" onclick="app.setPin($('#pinInput').val())">
+				<button class="funnyButton green shake" style="position: absolute;bottom: 0;" onclick="app.join(app.generate_key(5));">
 					<i class="fa fa-play"></i>
 				</button>
 
