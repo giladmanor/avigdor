@@ -3,8 +3,13 @@ var app = {
 	initialize : function() {
 
 		document.addEventListener('deviceready', this.onDeviceReady, false);
+		localStorage.user_ok = "";
+		
+		
 		setTimeout(function() {
 			if (!app.initOK) {
+				console.log(server);
+				app.getTags();
 				console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 				app.onDeviceReady();
 				console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
@@ -33,7 +38,7 @@ var app = {
 			app.start();
 
 		}
-		app.getTags();
+		
 		
 		
 	},
@@ -71,6 +76,8 @@ var app = {
 	initUser : function() {
 		app.faceOut();
 		app.formIn("nameForm");
+		$("#nameField").focus();
+		
 	},
 	setUserName : function(frm) {
 		var postData = $(frm).serializeArray();
@@ -123,26 +130,18 @@ var app = {
 	},
 	formIn : function(name) {
 		$("." + name).show();
-		$("." + name).css("top", -1000);
-
-		$("." + name).animate({
-			"top" : "50%"
-		}, 1200, function() {
-			$("." + name).animate({
-				"top" : "20%"
-			}, 500);
-		});
+		$("." + name).addClass("form-in");
+		setTimeout(function(){
+			$("." + name).removeClass("form-in");
+		},1200);
+		
 	},
 	formOut : function(name) {
-		$("." + name).animate({
-			"top" : "-10"
-		}, 200, function() {
-			$("." + name).animate({
-				"top" : "500"
-			}, 500, function() {
-				$("." + name).remove();
-			});
-		});
+		$("." + name).addClass("form-out");
+		setTimeout(function(){
+			$("." + name).removeClass("form-out");
+			$("." + name).hide();
+		},1200);
 	},
 	faceOut : function() {
 		$(".face").animate({
@@ -172,7 +171,7 @@ var app = {
 	getTags : function() {
 		$.ajax({
 			type : "GET",
-			url : "http://104.131.100.96:4000/tags",
+			url : server+"tags",
 			crossDomain : true,
 			data : {},
 			//dataType : 'json',

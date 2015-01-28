@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="utf-8">
+	<head>
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<link href="css/carddesign.css" rel="stylesheet">
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/handlebars-v2.0.0.js"></script>
+		<script src="js/carddesign.js"></script>
+	</head>
+	<style>
+	</style>
+
+	<body>
+		
+		<script id="card-list-item-tpl" type="text/x-handlebars-template" >
+			<li class="clickable">
+				<i class="fa fa-file-text-o"></i> {{label}}
+			</li>
+		</script>
+		
+		<script id="card-form-item-tpl" type="text/x-handlebars-template" >
+			<li>
+				<div class="input-task">
+					<label>task</label>
+					<textarea>{{task}}</textarea>
+					
+				</div>
+			</li>
+		</script>
+
+		<div class="card-list">
+			<h1>card list</h1>
+			<div class="filter">
+				filter by tags
+				<input name="tag" />
+				<i class="clickable fa fa-filter"></i>
+			</div>
+			<ul class="list">
+				<li class="clickable">
+					<i class="fa fa-file-text-o"></i> create a new card
+				</li>
+
+			</ul>
+		</div>
+
+		<div class="card-form">
+			<h1>card</h1>
+			<form>
+				<div class="actions">
+					<button class="clickable">Save</button> 
+					&nbsp;
+					<button class="clickable">Cancel</button>
+				</div>
+
+				<div class="input-tags">
+					<label>tags</label>
+					<input />
+				</div>
+				<ul>
+					
+
+				</ul>
+
+				
+
+			</form>
+
+			<div class="clickable">
+				<i class="fa fa-plus"></i> Add Task
+			</div>
+		</div>
+		
+		<script>
+			var server = "http://127.0.0.1:4444/";
+			app.init();
+		</script>
+
+	</body>
+</html>

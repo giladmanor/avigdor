@@ -11,45 +11,93 @@ body {
 	margin: 0px;
 	padding: 0px;
 	background-color: #F5A9F2;
+	background-image: url(../img/bkg.png);
+	background-position: center;
+	background-size: 300%;
+	overflow: hidden;
 }
 
-.face{
-	position:absolute;
-	top:40%;
-	bottom:0;
-	left:0;
-	right:0;
-	text-align:center;
+.background {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
 }
 
-.startButtons{
-	position:absolute;
-	top:-35%;
-	bottom:0;
-	left:0;
-	right:0;
-	padding:-250%;
-	color:white;
-	font-size:30px;
-	display:none;
+img.layer1 {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	-webkit-transform: rotate(17deg);
+	/*opacity: 0.7;*/
 }
 
-.startButtons button{
-	font-size: 40px;
-	color:#F5A9F2;
+img.layer2 {
+
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	-webkit-transform: rotate(37deg);
+	/*opacity: 0.7;*/
 }
 
-.joinButton{
+img.shadow {
+	position: absolute;
+	top: -0.1em;
+	bottom: 1.1em;
+	left: -0.1em;
+	right: 0.1em;
+	width: 101%;
+	height: 101%;
+}
+
+.face {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+
+.face img{
+	max-width: 80%;
 	
-	width:90px;
-	height:90px;
-	text-align:center;
+}
+
+.startButtons {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	/*padding: -250%;*/
+	color: maroon;
+	font-size: 2em;
+	display: none;
+}
+
+.startButtons button {
+	font-size: 0.2em;
+	background-color: black;
+}
+
+.joinButton {
+	width: 3em;
+	height: 3em;
+	text-align: center;
 	-webkit-transform: rotate(17deg);
 }
 
-.newButton{
-	width:90px;
-	height:90px;
-	text-align:center;
+.newButton {
+	width: 3em;
+	height: 3em;
+	text-align: center;
 	-webkit-transform: rotate(-17deg);
 }

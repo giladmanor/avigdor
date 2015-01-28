@@ -10,12 +10,20 @@
 		<!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
 		<link rel="stylesheet" type="text/css" href="css/avigdor.css" />
 		<script src="js/jquery-1.11.1.min.js"></script>
+		
 		<link href="css/font-awesome.min.css" rel="stylesheet">
 
 		<title>Avigdor</title>
 	</head>
-	<body>
-
+	<body class="platform-android platform-cordova platform-webview">
+		<div class="background">
+			
+			<img class="layer1 twirl1" src="img/bkg01.png" />
+			<img class="layer2 twirl2" src="img/bkg02.png" />
+			<img class="shadow" src="img/shade.png" />
+		</div>
+		
+		<button onclick="window.location ='carddesign.html'"> cards</button>
 		<div class="face shake">
 			<div class="startButtons rock">
 				<div class="joinButton right rocking"  onclick="app.join()">
@@ -31,14 +39,14 @@
 					</button>
 				</div>
 			</div>
-			<img src="img/logo.png" />
+			<img src="img/icon.png" />
 		</div>
 
 		<div class="nameForm funnyForm">
 			<form onsubmit="app.setUserName(this);return false;">
 				<h1>what is your name?</h1>
-				<input type="text" name="name"/>
-				<input type="submit" class="funnyButton right shake" value="next"/>
+				<input id="nameField" type="text" name="name"/>
+				
 			</form>
 		</div>
 
@@ -73,7 +81,7 @@
 		
 		<div class="newGameForm funnyForm blue">
 			<form onsubmit="return false;">
-				<h1>kind of game?</h1>
+				<h1>What kind of game?</h1>
 				
 				<div class="selector">
 					<ul class="selector">
@@ -91,6 +99,8 @@
 		<script type="text/javascript" src="cordova.js"></script>
 		<script type="text/javascript" src="js/avigdor.js"></script>
 		<script type="text/javascript">
+			var server = "http://127.0.0.1:4444/";//"http://104.131.100.96:4000/";//
+			localStorage.server = server;
 			app.initialize();
 		</script>
 	</body>

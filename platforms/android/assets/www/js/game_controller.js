@@ -41,14 +41,50 @@ var resolveEventCard = function(event) {
 	console.log("---------------------");
 	console.log(event);
 	var myIndex = event.players.indexOf(localStorage.device_uuid);
-	console.log(myIndex);
-	var task = event.tasks[myIndex];
+	
+	var task = event.card.tasks[myIndex];
+	console.log(task);
 	showCard({
 		title : event.card.tags[0],
 		text : task
 	});
 
 };
+
+var showCard = function(data) {
+	console.log(".");
+	$("#card_title").html(data.title);
+	$("#card_text").html(data.text);
+	$(".card").show();
+	$(".card").css("top","150%");
+	$(".card").animate({
+		"top" : "10%"
+	}, 800, function() {
+		$(".card").animate({
+			"top" : "20%"
+		}, 200);
+	});
+};
+
+var doneCard = function() {
+	$(".card").animate({
+		"top" : "10%"
+	}, 300, function() {
+		$(".card").animate({
+			"top" : "200%"
+		}, 600,function(){
+			$(".card").fadeOut("slow");
+		});
+	});
+	
+	soketier.send({
+		event : "done",
+		player : localStorage.device_uuid
+	});
+
+};
+
+
 
 var join = function() {
 	gameObject.event = "join";
@@ -95,38 +131,7 @@ var rollDice = function() {
 
 };
 
-var showCard = function(data) {
-	console.log(".");
-	$("#card_title").html(data.title);
-	$("#card_text").html(data.text);
-	$(".card").show();
-	$(".card").css("top","150%");
-	$(".card").animate({
-		"top" : "10%"
-	}, 800, function() {
-		$(".card").animate({
-			"top" : "20%"
-		}, 200);
-	});
-};
 
-var doneCard = function() {
-	$(".card").animate({
-		"top" : "10%"
-	}, 300, function() {
-		$(".card").animate({
-			"top" : "200%"
-		}, 600,function(){
-			$(".card").fadeOut("slow");
-		});
-	});
-	
-	soketier.send({
-		event : "done",
-		player : localStorage.device_uuid
-	});
-
-};
 
 //showCard({title:"muhaha",text:"show me your but, and then go fuck yourself in the ass.. you know you like it, dont you... yah..."});
 

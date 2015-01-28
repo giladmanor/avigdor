@@ -2,7 +2,7 @@
 
 var soketier = {
 	// socket:io('http://104.131.100.96:4000/'),
-	socket:io('http://127.0.0.1:4444/'),
+	socket:io(localStorage.server),
 	code:"",
 	uuid:"",
 	init:function(initData,handler){

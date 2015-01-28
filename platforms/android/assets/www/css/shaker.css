@@ -18,6 +18,18 @@
 100% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
 }
 
+@-webkit-keyframes spacetwirl1 {
+0% { -webkit-transform:  rotate(-15deg); }
+50% { -webkit-transform:  rotate(-90deg); }
+100% { -webkit-transform:  rotate(-15deg); }
+}
+
+@-webkit-keyframes spacetwirl2 {
+0% { -webkit-transform:  rotate(15deg); }
+50% { -webkit-transform:  rotate(90deg); }
+100% { -webkit-transform:  rotate(15deg); }
+}
+
 
 .shake {
 	-webkit-animation-name: spaceboots;
@@ -28,11 +40,21 @@
 	
 }
 
-.yoyo {
-	-webkit-animation-name: spaceyoyo;
-	-webkit-animation-duration: 1s;
+.twirl1 {
+	-webkit-animation-name: spacetwirl1;
+	-webkit-animation-duration: 1460s;
 	-webkit-transform-origin: 50% 50%;
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-timing-function: cubic-bezier(0,0,0.58,1);
 	
 }
+
+.twirl2 {
+	-webkit-animation-name: spacetwirl2;
+	-webkit-animation-duration: 1760s;
+	-webkit-transform-origin: 50% 50%;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: cubic-bezier(0,0,0.58,1);
+	
+}
+

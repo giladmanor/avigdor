@@ -10,8 +10,6 @@ body{
 	padding: 0px;
 	overflow:hidden;
 	
-	/*background-image: url(../img/IMG_20141107_235008~2.jpg);
-	background-size: 150%;*/
 }
 .board{
 	position:absolute;
@@ -21,6 +19,8 @@ body{
 	bottom:0;
 	overflow:hidden;
 	background-color: #00ACED;
+	background-image: url(../img/image_new-3.JPG);
+	background-size: 250%;
 }
 
 
