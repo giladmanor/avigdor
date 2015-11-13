@@ -3,7 +3,7 @@ var app = {
 	initialize : function() {
 
 		document.addEventListener('deviceready', this.onDeviceReady, false);
-		localStorage.user_ok = "";
+		//localStorage.user_ok = "";
 		
 		
 		setTimeout(function() {

@@ -1,4 +1,4 @@
-var boardColor = "#99cccc";
+var boardColor = "#ff33ff";
 var margin = {
 	top : 0,
 	right : 0,
@@ -17,7 +17,7 @@ $.map(path, function(e, i) {
 });
 
 var drawBoard = function(points) {
-	var color = d3.scale.linear().domain([0, 3]).range(["white", "steelblue"]).interpolate(d3.interpolateLab);
+	//var color = d3.scale.linear().domain([0, 3]).range(["white", "steelblue"]).interpolate(d3.interpolateLab);
 	var hexbin = d3.hexbin().size([width, height]).radius(20);
 
 	var svg = d3.select("svg").attr("width", width).attr("height", height).append("g");
@@ -69,7 +69,7 @@ var transition = function(svg, start, end) {
 drawBoard(path);
 
 var currentBoardIndex = 0;
-var shiftView = function(index){
+var shiftView = function(index) {
 	var s = path[currentBoardIndex];
 	var e = path[index];
 	d3.select("g").call(transition, s, e);
@@ -82,7 +82,7 @@ var updateBoard = function(gameObject) {
 	var list = [];
 	players.forEach(function(key) {
 		list.push(gameObject.players[key]);
-		
+
 	});
 	showPlayers(list);
 };
